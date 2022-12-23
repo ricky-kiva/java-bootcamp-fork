@@ -16,17 +16,12 @@ public class Main {
             new Person("Hammurabi", "Babylon", "1750 BC", 11),
         };
 
-        Airline airline = new Airline(); // making new instance of Airline, by constructor, named airline
-        // will produce empty array object
+        Airline airline = new Airline();
 
-        for (int i = 0; i < (people.length-1); i++) {
-            airline.setPerson(people[i]);
-        } // iterate people object array to the airline empty array object
+        for (int i = 0; i < people.length; i++) {
 
-        
-        for (int i = 1; i <= 4; i++) {
-            System.out.println(airline.getPerson(i)); // prints .toString from Person.java
         }
+
      }
     
   

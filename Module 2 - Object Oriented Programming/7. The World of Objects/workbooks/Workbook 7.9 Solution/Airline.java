@@ -16,6 +16,7 @@ public class Airline {
         this.people[index] = new Person(person);
     }
 
+
     public void createReservation(Person person) {
         while (people[person.getSeatNumber() - 1] != null) {
             System.out.println("\n" + person.getName() + ", seat: " + person.getSeatNumber() + " is already taken. Please choose another seat.\n");

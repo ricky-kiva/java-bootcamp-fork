@@ -9,7 +9,6 @@
             person.setPassport();
         }
 
-        System.out.println(person);
         
     }
   
