@@ -1,1 +1,5 @@
-## Resources for [The Complete Java Development Bootcamp](https://udemy-redirect-app.herokuapp.com/java)
+# Java Bootcamp Resources Fork
+
+Includes: 
+- Java basic introduction
+- Object Oriented Programming Fundamentals
