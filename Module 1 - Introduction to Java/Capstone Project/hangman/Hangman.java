@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Hangman {
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
@@ -45,7 +48,7 @@ public class Hangman {
     " +---+\n" +
     " |   |\n" +
     " O   |\n" +
-    "/|\\  |\n" + //if you were wondering, the only way to print '\' is with a trailing escape character, which also happens to be '\'
+    "/|\\  |\n" +
     "     |\n" +
     "     |\n" +
     " =========\n",
@@ -67,12 +70,65 @@ public class Hangman {
     " =========\n"};
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int intHang = 0;
 
+        String missWord = "Misses: ";
+        int randWord = (int)(Math.random()*words.length);
+        String askWord = words[randWord];
 
+        char[] arrFill = new char[askWord.length()];
+        for (int i = 0; i < arrFill.length; i++) {
+            arrFill[i] = '_';
+        }
 
+        char[] arrAsk = Arrays.copyOf(arrFill, arrFill.length);
+        for (int i = 0; i < arrAsk.length; i++) {
+            arrAsk[i] = askWord.charAt(i);
+        }
 
+        while (intHang < 7) {
 
+            System.out.println("\n" + gallows[intHang]);
 
+            if (intHang == 6) {
+                System.out.println("\nU DED!\n");
+            }
+
+            String fillWord = "Word: ";
+            for (int i = 0; i < arrFill.length; i++) {
+                fillWord = fillWord + " " + arrFill[i];
+                if (i == (arrFill.length)-1) {
+                    System.out.println(fillWord);
+                    System.out.println(missWord);
+                    if (fillWord.indexOf('_') > -1) {
+                        break;
+                    }
+                    System.out.println("\nGOOD WORK!\n");
+                    System.exit(0);
+                }
+            }
+
+            char charGuess = '_';
+            while(charGuess == '_') {
+                System.out.print("Guess: ");
+                charGuess = scan.next().charAt(0);
+            }
+
+            if (askWord.indexOf(charGuess) > -1) {
+                for (int i = 0; i < askWord.length(); i++) {
+                    if (askWord.charAt(i) == charGuess) {
+                        arrFill[i] = charGuess;
+                    }
+                }
+            } else {
+                intHang += 1;
+                missWord = missWord + charGuess;
+            }
+
+        }
+
+        scan.close();
     }
 
 }
