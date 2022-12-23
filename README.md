@@ -1,4 +1,4 @@
-# Java Bootcamp Resources Fork
+# Java LTP Resources Fork
 
 Includes: 
 - Java basic introduction
