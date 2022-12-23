@@ -20,6 +20,13 @@ public class Person {
         this.seatNumber = source.seatNumber;
     }
     
+    public boolean applyPassport() {
+        return (int)(Math.random() * 2) == 1;
+    }
+
+    public int chooseSeat() {
+        return (int)((Math.random()*11) + 1);
+    }
 
     public String getName() {
         return name;

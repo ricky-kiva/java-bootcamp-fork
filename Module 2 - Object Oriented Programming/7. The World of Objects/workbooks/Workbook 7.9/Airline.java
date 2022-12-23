@@ -19,9 +19,12 @@ public class Airline {
     public void createReservation(Person person) {
         int index = person.getSeatNumber() - 1; // since seat numbers can range from 1 - 11, whereas the index ranges from 0 - 10.
         
-        /*
-     		While loop logic here
-        */
+        while (people[index] != null) {
+            index = person.getSeatNumber() - 1;
+            System.out.println(person.getName() + ", seat: " + person.getSeatNumber() + " is already taken. Please choose another seat.\n");
+            person.chooseSeat();
+        }
+
         people[index] = new Person(person); 
         System.out.println("Thank you " + person.getName() + " for flying with Java airlines. Your seat number is " + person.getSeatNumber() + ".\n");
     }
